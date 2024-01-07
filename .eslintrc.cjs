@@ -4,34 +4,33 @@ module.exports = {
     es2021: true
   },
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:vue/vue3-essential',
-    'prettier',
-    'plugin:prettier/recommended'
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:vue/vue3-essential",
+    "prettier",
+    "plugin:prettier/recommended"
   ],
   overrides: [
     {
       env: {
         node: true
       },
-      files: ['.eslintrc.{js,cjs}'],
+      files: ["*.cjs"],
       parserOptions: {
-        sourceType: 'script'
+        sourceType: "script"
       }
     }
   ],
   parserOptions: {
-    ecmaVersion: 'latest',
-    parser: '@typescript-eslint/parser',
-    sourceType: 'module'
+    ecmaVersion: "latest",
+    parser: "@typescript-eslint/parser",
+    sourceType: "module"
   },
-  plugins: ['@typescript-eslint', 'vue', 'prettier'],
+  plugins: ["@typescript-eslint", "vue", "prettier"],
   rules: {
-    'prettier/prettier': 'error',
-    indent: ['error', 2],
-    'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single'],
-    semi: ['error', 'always']
+    "prettier/prettier": "error",
+    indent: ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "vue/multi-word-component-names": "off"
   }
-};
+}
