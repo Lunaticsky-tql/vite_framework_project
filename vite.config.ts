@@ -7,6 +7,7 @@ import viteStylelint from "vite-plugin-stylelint"
 import svgLoader from "vite-svg-loader"
 import viteImagemin from "vite-plugin-imagemin"
 import vueJsx from "@vitejs/plugin-vue-jsx"
+import { viteStaticCopy } from "vite-plugin-static-copy"
 const lessPath = path.resolve("src/style.less")
 // 是否为生产环境，在生产环境一般会注入 NODE_ENV 这个环境变量，见下面的环境变量文件配置
 const isProduction = process.env.NODE_ENV === "production"
@@ -42,6 +43,14 @@ export default defineConfig({
           }
         ]
       }
+    }),
+    viteStaticCopy({
+      targets: [
+        {
+          src: "./node_modules/@idux/components/icon/assets/*.svg",
+          dest: "idux-icons"
+        }
+      ]
     })
   ],
   resolve: {
