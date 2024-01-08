@@ -4,7 +4,6 @@
 </template>
 
 <script setup lang="ts">
-import { IxButton } from "@idux/components/button"
 import { useIduxMessage } from "./hooks"
 
 useIduxMessage()

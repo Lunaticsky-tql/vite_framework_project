@@ -8,6 +8,8 @@ import svgLoader from "vite-svg-loader"
 import viteImagemin from "vite-plugin-imagemin"
 import vueJsx from "@vitejs/plugin-vue-jsx"
 import { viteStaticCopy } from "vite-plugin-static-copy"
+import { IduxResolver } from "unplugin-vue-components/resolvers"
+import Components from "unplugin-vue-components/vite"
 const lessPath = path.resolve("src/style.less")
 // 是否为生产环境，在生产环境一般会注入 NODE_ENV 这个环境变量，见下面的环境变量文件配置
 const isProduction = process.env.NODE_ENV === "production"
@@ -51,6 +53,13 @@ export default defineConfig({
           dest: "idux-icons"
         }
       ]
+    }),
+    Components({
+      resolvers: [
+        // 可以通过指定 `importStyle` 来按需加载 css 或 less 代码, 也支持不同的主题
+        IduxResolver({ importStyle: "css", importStyleTheme: "default" })
+      ],
+      dts: false //不生成d.ts文件
     })
   ],
   resolve: {
