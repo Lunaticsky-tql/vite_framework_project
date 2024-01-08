@@ -10,6 +10,7 @@ import vueJsx from "@vitejs/plugin-vue-jsx"
 import { viteStaticCopy } from "vite-plugin-static-copy"
 import { IduxResolver } from "unplugin-vue-components/resolvers"
 import Components from "unplugin-vue-components/vite"
+import { viteMockServe } from "vite-plugin-mock"
 const lessPath = path.resolve("src/style.less")
 // 是否为生产环境，在生产环境一般会注入 NODE_ENV 这个环境变量，见下面的环境变量文件配置
 const isProduction = process.env.NODE_ENV === "production"
@@ -60,6 +61,11 @@ export default defineConfig({
         IduxResolver({ importStyle: "css", importStyleTheme: "default" })
       ],
       dts: false //不生成d.ts文件
+    }),
+    viteMockServe({
+      mockPath: "mock",
+      localEnabled: !isProduction, //生产环境下不启用
+      watchFiles: true
     })
   ],
   resolve: {
