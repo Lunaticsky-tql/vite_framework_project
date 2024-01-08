@@ -29,7 +29,6 @@ module.exports = {
   plugins: ["@typescript-eslint", "vue", "prettier"],
   rules: {
     "prettier/prettier": "error",
-    indent: ["error", 2],
     "linebreak-style": ["error", "unix"],
     "vue/multi-word-component-names": "off"
   }
