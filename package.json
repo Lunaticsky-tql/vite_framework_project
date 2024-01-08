@@ -16,6 +16,7 @@
     "@idux/cdk": "^1.12.4",
     "@idux/components": "^1.12.4",
     "@idux/pro": "^1.12.4",
+    "axios": "^1.6.5",
     "less": "^4.2.0",
     "pinia": "^2.1.7",
     "pinia-plugin-persist": "^1.0.0",
